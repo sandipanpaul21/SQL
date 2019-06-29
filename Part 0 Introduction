@@ -13,6 +13,3 @@ For example, in a table representing employees, each row represents a single per
 Each column, or field, of a table contains a single attribute for all rows in the table. 
 
 For example, in a table representing employees, we might have a column containing first and last names for all employees.
-
-
-
