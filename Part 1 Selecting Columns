@@ -1,6 +1,80 @@
+# In SQL, you can select data from a table using a SELECT statement. 
+
+
+# Selecting single column from a dataset
+
+SELECT name FROM people;    #  List of all the names from people dataset
+
+# In this query, SELECT and FROM are called keywords. In SQL, keywords are not case-sensitive.
+
+SELECT title FROM films;    #  List of all the titles from films dataset
+
+SELECT release_year FROM films;     #  List of all the release years from films dataset
+
 SELECT name FROM people;    #  List of all the names from people dataset
 
 SELECT 'DataCamp <3 SQL' AS result;     # DataCamp <3 SQL
 
 SELECT 'SQL is cool!' AS result;    # SQL is cool!
+
+
+
+# Selecting multiple columns
+
+# To select multiple columns from a table, simply separate the column names with commas!
+
+# For example, this query selects two columns, name and birthdate, from the people table:
+
+SELECT name, birthdate FROM people;
+
+# Sometimes,  you may want to select all columns from a table. Typing out every column name would be a pain, so there's a handy shortcut:
+
+SELECT * FROM people;
+
+# If you only want to return a certain number of results, you can use the LIMIT keyword to limit the number of rows returned:
+
+SELECT * FROM people LIMIT 10;
+
+
+# SELECT DISTINCT 
+
+# Often your results will include many duplicate values. 
+
+# If you want to select all the unique values from a column, you can use the DISTINCT keyword. 
+
+# This might be useful if, for example, you're interested in knowing which languages are represented in the films table:
+
+SELECT DISTINCT language FROM films;
+
+SELECT DISTINCT country FROM films;
+
+SELECT DISTINCT certification FROM films;
+
+SELECT DISTINCT role FROM roles;
+
+
+# SELECT Count - Count the number of rows in a table
+
+SELECT COUNT(*) FROM reviews;
+
+# If you want to count the number of non-missing values in a particular column, you can call COUNT on just that column.
+
+SELECT COUNT(*) FROM people;    # 8397
+
+# Count the number of (non-missing) birth dates in the people table.
+
+SELECT COUNT(birthdate) FROM people;    # 6152
+
+# Count the number of unique birth dates in the people table.
+
+SELECT COUNT(DISTINCT birthdate) FROM people;   # 5398
+
+
+
+
+
+
+
+
+
 
