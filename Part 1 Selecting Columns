@@ -68,13 +68,3 @@ SELECT COUNT(birthdate) FROM people;    # 6152
 # Count the number of unique birth dates in the people table.
 
 SELECT COUNT(DISTINCT birthdate) FROM people;   # 5398
-
-
-
-
-
-
-
-
-
-
