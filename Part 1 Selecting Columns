@@ -1,1 +1,6 @@
+SELECT name FROM people;    #  List of all the names from people dataset
+
+SELECT 'DataCamp <3 SQL' AS result;     # DataCamp <3 SQL
+
+SELECT 'SQL is cool!' AS result;    # SQL is cool!
 
