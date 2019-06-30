@@ -32,11 +32,3 @@ WHERE budget IS NULL;
 
 SELECT COUNT(*) FROM films
 WHERE language IS NULL;
-
-
-
-
-
-
-
-
