@@ -1,7 +1,5 @@
 # Filtering of numeric values
-
 # WHERE clause is used to filter numeric records
-
 # Get all details for all films released in 2016.
 
 SELECT * FROM films WHERE release_year = 2016;
@@ -16,9 +14,7 @@ SELECT title,release_year FROM films WHERE release_year > 2000;
 
 
 # Simple filtering of text
-
 # Remember, the WHERE clause can also be used to filter text results, such as names or countries.
-
 # Get all details for all French language films.
 
 SELECT * FROM films WHERE language = 'French'; 
@@ -37,21 +33,18 @@ SELECT * FROM films WHERE certification = 'R';
 
 
 # WHERE AND (Multiple Conditions)
-
 # Often, you'll want to select data based on multiple conditions. 
-
 # You can build up your WHERE queries by combining multiple conditions with the AND keyword.
-
 # For example,
 
-SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000; #gives you the titles of films released between 1994 and 2000.
+SELECT title FROM films 
+WHERE release_year > 1994 AND release_year < 2000;      #gives you the titles of films released between 1994 and 2000.
 
 # Note that you need to specify the column name separately for every AND condition, so the following would be invalid:
 
 SELECT title FROM films WHERE release_year > 1994 AND < 2000;
 
 # You can add as many AND conditions as you need!
-
 # Get the title and release year for all Spanish language films released before 2000.
 
 SELECT title, release_year FROM films WHERE language = 'Spanish' AND release_year < 2000;
@@ -66,11 +59,8 @@ SELECT * FROM films WHERE language = 'Spanish' AND release_year > 2000 AND relea
 
 
 # WHERE AND OR
-
 # What if you want to select rows based on multiple conditions where some but not all of the conditions need to be met? 
-
 # For this, SQL has the OR operator.
-
 # For example, the following returns all films released in either 1994 or 2000:
 
 SELECT title FROM films
@@ -89,9 +79,7 @@ WHERE (release_year = 1994 OR release_year = 1995)
 AND (certification = 'PG' OR certification = 'R');
 
 # Otherwise, due to SQL's precedence rules, you may not get the results you're expecting!
-
 # What does the OR operator do? Ans is Display only rows that meet at least one of the specified conditions.
-
 # The following query selects all films that were released in 1994 or 1995 which had a rating of PG or R.
 
 SELECT title FROM films
@@ -108,7 +96,6 @@ AND gross > 2000000;
 
 
 # BETWEEN
-
 # As you've learned, you can use the following query to get titles of all films released in and between 1994 and 2000:
 
 SELECT title
@@ -129,8 +116,8 @@ BETWEEN 1994 AND 2000;
 # BETWEEN (2)
 # Similar to the WHERE clause, the BETWEEN clause can be used with multiple AND and OR operators.
 # So you can build up your queries and make them even more powerful!
-
-# For example, suppose we have a table called kids. We can get the names of all kids between the ages of 2 and 12 from the United States:
+# For example, suppose we have a table called kids. 
+# We can get the names of all kids between the ages of 2 and 12 from the United States:
 
 SELECT name FROM kids
 WHERE age BETWEEN 2 AND 12
@@ -157,13 +144,13 @@ OR age = 10;
 
 # Enter the IN operator! 
 # The IN operator allows you to specify multiple values in a WHERE clause, making it easier and quicker to specify multiple OR conditions! Neat, right?
-
 # So, the above example would become simply:
 
 SELECT name FROM kids
 WHERE age IN (2, 4, 6, 8, 10);
 
-# Get the title and release year of all films released in 1990 or 2000 that were longer than two hours. Remember, duration is in minutes!
+# Get the title and release year of all films released in 1990 or 2000 that were longer than two hours. 
+# Remember, duration is in minutes!
 
 SELECT title,release_year FROM films
 WHERE release_year IN (1990,2000)
@@ -178,3 +165,48 @@ WHERE language IN ('English','Spanish','French');
 
 SELECT title,certification FROM films
 WHERE certification IN ('NC-17','R');
+
+
+# LIKE and NOT LIKE
+
+# As you've seen, the WHERE clause can be used to filter text data. 
+# However, so far you've only been able to filter by specifying the exact text you're interested in. 
+# In the real world, often you'll want to search for a pattern rather than a specific text string.
+
+# In SQL, the LIKE operator can be used in a WHERE clause to search for a pattern in a column. 
+# To accomplish this, you use something called a wildcard as a placeholder for some other values. 
+# There are two wildcards you can use with LIKE:
+
+# The % wildcard will match zero, one, or many characters in text. 
+# For example, the following query matches companies like 'Data', 'DataC' 'DataCamp', 'DataMind', and so on:
+
+SELECT name FROM companies
+WHERE name LIKE 'Data%';
+
+# The _ wildcard will match a single character. 
+# For example, the following query matches companies like 'DataCamp', 'DataComp', and so on:
+
+SELECT name FROM companies
+WHERE name LIKE 'DataC_mp';
+
+# You can also use the NOT LIKE operator to find records that don't match the pattern you specify.
+# Get the names of all people whose names begin with 'B'. The pattern you need is 'B%'.
+
+SELECT name FROM people
+WHERE name LIKE 'B%';
+
+# Get the names of people whose names have 'r' as the second letter. The pattern you need is '_r%'.
+
+SELECT name FROM people
+WHERE name LIKE '_r%';
+
+# Get the names of people whose names don't start with A. The pattern you need is 'A%'.
+
+SELECT name FROM people
+WHERE name NOT LIKE 'A%';
+
+
+
+
+
+
