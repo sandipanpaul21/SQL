@@ -65,7 +65,7 @@ SELECT * FROM films WHERE language = 'Spanish' AND release_year > 2000;
 SELECT * FROM films WHERE language = 'Spanish' AND release_year > 2000 AND release_year < 2010;
 
 
-#WHERE AND OR
+# WHERE AND OR
 
 # What if you want to select rows based on multiple conditions where some but not all of the conditions need to be met? 
 
@@ -178,8 +178,3 @@ WHERE language IN ('English','Spanish','French');
 
 SELECT title,certification FROM films
 WHERE certification IN ('NC-17','R');
-
-
-
-
-
