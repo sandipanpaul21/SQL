@@ -16,10 +16,10 @@ DROP DATABASE testDB
 
 CREATE TABLE testDB.persons (
 	PersonID INT,
-    LastName VARCHAR(30),
-    FirstName VARCHAR(30),
-    Address VARCHAR(255),
-    City VARCHAR(30)
+	LastName VARCHAR(30),
+	FirstName VARCHAR(30),
+	Address VARCHAR(255),
+	City VARCHAR(30)
 )
 # The PersonID column is of type int and will hold an integer.
 # The LastName, FirstName, Address, and City columns are of type varchar and will hold characters
