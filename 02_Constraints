@@ -34,10 +34,10 @@
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  ID INT NOT NULL,
-    LastName VARCHAR(255) NOT NULL,
-    FirstName VARCHAR(255) NOT NULL,
-    Age INT
+	ID INT NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	FirstName VARCHAR(255) NOT NULL,
+	Age INT
 )
 
 # SQL NOT NULL on ALTER TABLE
@@ -59,11 +59,11 @@ MODIFY Age INT NOT NULL
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  ID INT NOT NULL,
-    LastName VARCHAR(255) NOT NULL,
-    FirstName VARCHAR(255) NOT NULL,
-    Age INT,
-    UNIQUE(ID)
+	ID INT NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	FirstName VARCHAR(255) NOT NULL,
+	Age INT,
+	UNIQUE(ID)
 )
 
 # UNIQUE Constraint on ALTER TABLE
@@ -90,10 +90,10 @@ DROP INDEX AGE
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  Id INT NOT NULL,
-    LastName VARCHAR(300) NOT NULL,
-    FirstName VARCHAR(300) NOT NULL,
-    PRIMARY KEY(ID)
+	Id INT NOT NULL,
+	LastName VARCHAR(300) NOT NULL,
+	FirstName VARCHAR(300) NOT NULL,
+	PRIMARY KEY(ID)
 )
 
 # To allow naming of a PRIMARY KEY constraint
@@ -102,10 +102,10 @@ CREATE TABLE testDB.Persons(
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  Id INT NOT NULL,
-    LastName VARCHAR(300) NOT NULL,
-    FirstName VARCHAR(300) NOT NULL,
-    CONSTRAINT PK_Persons PRIMARY KEY (Id,LastName)
+	Id INT NOT NULL,
+	LastName VARCHAR(300) NOT NULL,
+	FirstName VARCHAR(300) NOT NULL,
+	CONSTRAINT PK_Persons PRIMARY KEY (Id,LastName)
 )
 
 # In the example above there is only ONE PRIMARY KEY (PK_Person). 
@@ -142,11 +142,11 @@ ADD PRIMARY KEY (ID)
 DROP TABLE testDB.Orders
 
 CREATE TABLE testDB.Orders(
-	  OrderID INT NOT NULL,
-    OrderNumber INT NOT NULL,
-    PersonID INT,
-    PRIMARY KEY(OrderID),
-    FOREIGN KEY(PersonID) REFERENCES testDB.Persons(Id)
+	OrderID INT NOT NULL,
+	OrderNumber INT NOT NULL,
+	PersonID INT,
+	PRIMARY KEY(OrderID),
+	FOREIGN KEY(PersonID) REFERENCES testDB.Persons(Id)
 )
 
 # FOREIGN KEY on ALTER TABLE
@@ -176,11 +176,11 @@ DROP TABLE testDB.Orders
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  ID INT NOT NULL,
-    LastName VARCHAR(300) NOT NULL,
-    FirstName VARCHAR(300) NOT NULL,
-    Age INT,
-    CHECK(AGE >= 18)
+	ID INT NOT NULL,
+	LastName VARCHAR(300) NOT NULL,
+	FirstName VARCHAR(300) NOT NULL,
+	Age INT,
+	CHECK(AGE >= 18)
 )
 
 # To allow naming of a CHECK constraint, and for defining a CHECK constraint on multiple columns:
@@ -188,12 +188,12 @@ CREATE TABLE testDB.Persons(
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  ID INT NOT NULL,
-    LastName VARCHAR(300) NOT NULL,
-    FirstName VARCHAR(300) NOT NULL,
-    Age INT,
-    City VARCHAR(20),
-    CONSTRAINT CHK_Perosn CHECK(AGE >= 18 AND City = 'PUNE')
+	ID INT NOT NULL,
+	LastName VARCHAR(300) NOT NULL,
+	FirstName VARCHAR(300) NOT NULL,
+	Age INT,
+	City VARCHAR(20),
+	CONSTRAINT CHK_Perosn CHECK(AGE >= 18 AND City = 'PUNE')
 )
 
 # CHECK on ALTER TABLE
@@ -219,11 +219,11 @@ DROP CHECK CHK_PersonAgeCityPune
 DROP TABLE testDB.Persons
 
 CREATE TABLE testDB.Persons(
-	  Id INT NOT NULL,
-    LastName VARCHAR(25) NOT NULL,
-    FirstName VARCHAR(25) NOT NULL,
-    Age INT,
-    City VARCHAR(200) DEFAULT 'Pune'
+	Id INT NOT NULL,
+	LastName VARCHAR(25) NOT NULL,
+	FirstName VARCHAR(25) NOT NULL,
+	Age INT,
+	City VARCHAR(200) DEFAULT 'Pune'
 )
 
 # DEFAULT on ALTER TABLE
